@@ -1,0 +1,8 @@
+{
+  "name": "VanHackJobs",
+  "app_id": "6607e60f",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
