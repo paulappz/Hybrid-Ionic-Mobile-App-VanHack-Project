@@ -4,7 +4,9 @@
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
 $font-path: "../assets/fonts";
-
+$font-family-md-base: "Lato";
+$font-family-ios-base: "Lato";
+$font-family-wp-base: "Lato";
 
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
@@ -38,7 +40,9 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  vanhack:    #3399ff,
+  badge:      #b3d9ff
 );
 
 
@@ -47,7 +51,16 @@ $colors: (
 // iOS only Sass variables can go here
 
 
+$grid-breakpoints: (
+  xs: 0, // Phone (0px - 575px)
+  sm: 576px, // Phablet (576px - 767px)
+  md: 768px, // Tablet vertical (768px - 991px)
+  lg: 992px // Tablet horizontal, Desktop (992px and above)
+ );
 
+ $grid-max-widths: (
+  lg: 992px
+ );
 
 // App Material Design Variables
 // --------------------------------------------------

@@ -1,0 +1,38 @@
+<!--
+  Generated template for the DetailspopsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{job.job_role}}</ion-title>
+    <ion-buttons end>
+      <button icon-only ion-button color="danger" (click)="dismiss()">
+        <ion-icon name='close' is-active="false"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item-group>
+    <h2 style="text-align:center">{{job.job_role}}</h2>
+    <ion-item> Company Description</ion-item>
+    <ion-card-content class="job-des">{{job.company_description}}</ion-card-content>
+    <ion-icon color="vanhack" item-left name="pin"></ion-icon> &nbsp; {{job.country}}, {{job.city}}
+    <ion-item *ngIf="job.must_skills?.length > 0"> Must To Have Skills
+      <li *ngFor="let j of job.must_skills;">{{j}}</li>
+    </ion-item>
+    <ion-item *ngIf="job.nice_skills?.length > 0 && job.nice_skills[0] != ''"> Nice To Have Skills
+      <li *ngFor="let n of job.nice_skills;">{{n}}</li>
+    </ion-item>
+  </ion-item-group>
+
+</ion-content>
+
+<ion-footer>
+  <button ion-button full color="primary" (click)="dismiss()">Apply
+        </button>
+</ion-footer>
