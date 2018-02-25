@@ -1,61 +1,75 @@
 <ion-header>
 
-  <ion-toolbar no-border-top color="vanhack">
-    <ion-searchbar #searchbar [(ngModel)]="searchstring" (input)="searchjob($event)" placeholder="Search...">
-    </ion-searchbar>
-    
-    <ion-buttons end>
-      <button ion-button icon-only (click)="presentFilter()">
+    <ion-toolbar no-border-top color="vanhack">
+        <ion-searchbar #searchbar [(ngModel)]="searchstring" (input)="searchjob($event)" placeholder="Search...">
+        </ion-searchbar>
+
+        <ion-buttons end>
+            <button ion-button icon-only (click)="presentFilter()">
 <ion-icon ios="ios-options-outline" color="light" md="md-options"></ion-icon>
 </button>
-    </ion-buttons>
-  </ion-toolbar>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-spinner class="ion-spinner"></ion-spinner>
 
-        <ion-spinner class="spinnerCenter" name="crescent"></ion-spinner>
 
-    
-  
-  <div class="fill" *ngIf="excludeTracks?.length > 0"> Show job listings for location:
-    <ion-badge color="vanhack" *ngFor="let f of excludeTracks;"> {{f}}</ion-badge>
-  </div>
+    <div style="position:absolute;top:0px;left:50%;" *ngIf="Jobs == 0 && excludeTracks?.length == 0 && searchstring == '' ">
+        <ion-spinner>
+        </ion-spinner>
+    </div>
 
-  <ion-grid fixed>
-    <ion-row>
-      <ion-card ion-col *ngFor="let job of Jobs; " col-12 col-md-6 col-lg-4>
-        <div class="role" style="border:2px solid #cce6ff;">
-          <ion-card-content>
-            <h2 style="margin:10px auto;"><b>{{job.job_role}}</b></h2>
+    <!-- <div style="position:absolute;top:0px;left:50%;" *ngIf="Jobs == 0 && searchstring != '' ">
+        <div class="fill"> No job listings for search :
+          <ion-badge color="vanhack"> {{searchstring}}</ion-badge>
+        </div>
+    </div> -->
 
-            <span style="color:#737373" *ngIf="job.roles_details != ''" [innerHTML]="job.roles_details.substr(0,120) + '....'"></span>
 
-            <!-- <h4 style="color:#737373;text-align: justify;
+    <div class="fill" *ngIf="excludeTracks?.length > 0 && Jobs?.length > 0 ; else  noresult"> Show job listings for location:
+        <ion-badge color="vanhack" *ngFor="let f of excludeTracks;"> {{f}}</ion-badge>
+    </div>
+
+    <ng-template *ngIf="excludeTracks?.length > 0 && Jobs?.length < 0 ;" #noresult>
+        <div class="fill"> No job listings for location:
+            <ion-badge color="vanhack" *ngFor="let f of excludeTracks;"> {{f}}</ion-badge>
+        </div>
+    </ng-template>
+
+    <ion-grid fixed>
+        <ion-row>
+            <ion-card ion-col *ngFor="let job of Jobs; " col-12 col-md-6 col-lg-4>
+                <div class="role" style="border:2px solid #cce6ff;">
+                    <ion-card-content>
+                        <h2 style="margin:10px auto;"><b>{{job.job_role}}</b></h2>
+
+                        <span style="color:#737373" *ngIf="job.roles_details != ''" [innerHTML]="job.roles_details.substr(0,120) + '....'"></span>
+
+                        <!-- <h4 style="color:#737373;text-align: justify;
 text-justify: inter-word;" *ngIf="job.roles_details != ''"  [innerHTML]="job.roles_details.substr(0,120) + '....'"></h4>  -->
 
 
-            <div class="skills">
-              <ion-icon color="vanhack" item-left name="list-box"></ion-icon> &nbsp;skills:
-              <ion-badge color="primary" class="badge" *ngFor="let l of job.must_skills;"> {{l}}</ion-badge>
-            </div>
+                        <div class="skills">
+                            <ion-icon color="vanhack" item-left name="list-box"></ion-icon> &nbsp;skills:
+                            <ion-badge color="primary" class="badge" *ngFor="let l of job.must_skills;"> {{l}}</ion-badge>
+                        </div>
 
-            <div style="margin-top:5px;">
-              <ion-icon color="vanhack" item-left name="pin"></ion-icon> <span class="icon" style="font-size:12px">
+                        <div style="margin-top:5px;">
+                            <ion-icon color="vanhack" item-left name="pin"></ion-icon> <span class="icon" style="font-size:12px">
                   &nbsp; {{job.country}}, {{job.city}}
               </span>
 
-            </div>
-          </ion-card-content>
-          <div style="width:120px;margin:0 auto;margin-bottom:5px;"> <button ion-button (click)="openModal(job)" small outline left style="font-size:14px;text-transform:capitalize">More Details</button></div>
-        </div>
+                        </div>
+                    </ion-card-content>
+                    <div style="width:120px;margin:0 auto;margin-bottom:5px;"> <button ion-button (click)="openModal(job)" small outline left style="font-size:14px;text-transform:capitalize">More Details</button></div>
+                </div>
 
-      </ion-card>
-    </ion-row>
-  </ion-grid>
-  <ion-infinite-scroll (ionInfinite)="loadmoreJobs($event)">
-    <ion-infinite-scroll-content></ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+            </ion-card>
+        </ion-row>
+    </ion-grid>
+    <ion-infinite-scroll (ionInfinite)="loadmoreJobs($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 
 </ion-content>

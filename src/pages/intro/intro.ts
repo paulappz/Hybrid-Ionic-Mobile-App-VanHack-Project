@@ -8,7 +8,7 @@ import { HomePage } from '../../pages/home/home';
   templateUrl: 'intro.html',
 })
 export class IntroPage {
-  
+
   @ViewChild('slider') slider: Slides;
   slideIndex = 0;
 
@@ -17,7 +17,7 @@ export class IntroPage {
     {
       title: 'Welcome to <b>VanHack<b>',
       imageUrl: 'assets/img/background/background-1.jpg',
-      description: 'VanHack is a community of over 100,000 Software Developers, Designers and Digital Marketers who are ready to <b>relocate</b>.',
+      description: 'VanHack is a community of over 100,000 Software Developers, Designers and Digital Marketers who are ready to relocate.',
     },
     {
       title: 'Who is VanHack for?',
@@ -43,7 +43,7 @@ export class IntroPage {
   ) { }
 
   onSlideChanged() {
-    //Keep tracjk of acitve slide index 
+    //Keep tracjk of acitve slide index
     this.slideIndex = this.slider.getActiveIndex();
     console.log('Slide changed! Current index is', this.slideIndex);
   }
@@ -54,7 +54,7 @@ export class IntroPage {
     this.navCtrl.push(HomePage);
   }
 
-  
+
   goToApp() {
     console.log('Skip clicked');
      //  Go to app home page after introduction has been seen and save session

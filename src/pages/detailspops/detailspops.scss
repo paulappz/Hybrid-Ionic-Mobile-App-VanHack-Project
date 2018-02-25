@@ -1,16 +1,18 @@
 page-detailspops {
-    .toolbar-title-ios, .toolbar-title-md {
+    .toolbar-title-ios,
+    .toolbar-title-md,
+    .toolbar-title-wp {
         color: #3399ff !important;
         text-align: center !important;
     }
-    .h2{
+    .h2 {
         text-align: center;
     }
     .job-des {
-       text-align: justify;
-          text-justify: inter-word;
+        text-align: justify;
+        text-justify: inter-word;
     }
-    li{
+    li {
         font-size: 13px;
     }
 }
