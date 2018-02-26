@@ -28,11 +28,11 @@ All app preview screenshots were taken by running `ionic serve --lab` on a windo
   
 - [JobDetails  Page]
 
-  <img src="resources/jobdetails.png" alt="JobList">
+  <img src="resources/Jobdetails.png" alt="JobList">
 
 - [JobFilter  Page]
 
-  <img src="resources/Filters.png" alt="JobList">
+  <img src="resources/Filter.png" alt="JobList">
 
 
 ## Deploying
