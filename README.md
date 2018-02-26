@@ -1,6 +1,6 @@
 # Hybrid-Ionic-Mobile-App-VanHack-Project
 
-# Crossplatorm Mobile Application 
+# Cross-Plaform Mobile Application 
 
 * This project is:
 * An app to show Job posts and Job details;
