@@ -27,7 +27,10 @@ export class HomePage {
     public toastCtrl: ToastController,
     public Data: JobsProvider) {
     // Load up data for the first time
-    this.loadmoreJobs(null)
+    this.loadmoreJobs(null);
+    
+    // data for filterpage
+    this.Data.getCountry().subscribe((trackCountry: string[]) => {});
   }
 
   ionViewDidEnter() {
